@@ -16,6 +16,7 @@ export type {
   ClientKillOpts,
   ClientListOpts,
   ClientPauseMode,
+  ClientReplyMode,
   ClientTrackingOpts,
   ClientType,
   ClientUnblockingBehaviour,

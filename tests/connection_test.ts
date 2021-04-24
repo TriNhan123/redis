@@ -44,4 +44,11 @@ suite.test("swapdb", async () => {
   assertEquals(await client.swapdb(0, 1), "OK");
 });
 
+
+suite.test("client pause", async () => {
+  assertEquals(await client.clientReply("ON", "OK");
+  assertEquals(await client.clientReply("OFF"), "OK");
+  assertEquals(await client.clientReply("SKIP"), "OK");
+});
+
 suite.runTests();

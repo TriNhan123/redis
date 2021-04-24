@@ -69,6 +69,8 @@ export interface ClientListOpts {
 
 export type ClientPauseMode = "WRITE" | "ALL";
 
+export type ClientReplyMode = "ON" | "OFF" | "SKIP";  
+
 export interface ClientTrackingOpts {
   mode: "ON" | "OFF";
   redirect?: number;
@@ -1065,6 +1067,12 @@ XRANGE somestream - +
    * @see https://redis.io/commands/client-pause
    */
   clientPause(timeout: number, mode?: ClientPauseMode): Promise<SimpleString>;
+  
+  /**
+   * Controls whether the server will reply the client's commands
+   * @see https://redis.io/commands/client-reply
+   */
+  clientReply(mode?: ClientReplyMode): Promise<SimpleString>;
 
   /**
    * Sets a `connectionName` to the current connection.

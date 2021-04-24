@@ -92,6 +92,7 @@ import {
   XReadOpts,
   XReadStreamRaw,
 } from "./stream.ts";
+import { ClientReplyMode } from "./command";
 
 export interface Redis extends RedisCommands {
   readonly connection: Connection;
@@ -403,6 +404,13 @@ export class RedisImpl implements Redis {
     return this.execStatusReply("CLIENT", "PAUSE", timeout);
   }
 
+  clientReply(mode?: ClientReplyMode){
+    if (mode) {
+      return this.execStatusReply("CLIENT", "REPLY", mode);
+    }
+    return this.execStatusReply("CLIENT", "REPLY");
+
+  }
   clientSetName(connectionName: string) {
     return this.execStatusReply("CLIENT", "SETNAME", connectionName);
   }
